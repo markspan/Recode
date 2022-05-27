@@ -39,7 +39,13 @@ for filename in filenames:
                     newlines.append(line)
                     
         f.close()
-    #os.rename(filename, "old/" + filename)
+        
+    try:
+        os.mkdir("./old"
+    except OSError as error:
+        pass
+        
+    os.rename(filename, "old/" + filename)
     with open(filename, 'w') as f:
         f.writelines(newlines)
         f.close()
